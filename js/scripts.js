@@ -8,22 +8,28 @@ function getDinos() {
     console.log("Message: filled array ", names)
     document.getElementById('dinos').innerHTML = '<h1>' + names + '</h1>'
 }
-var toons = new Request(`https://looney-toons-api.herokuapp.com/api/characters`)
+var theToons = new Request(`https://looney-toons-api.herokuapp.com/api/characters`)
 
-function getToons() {
-    fetch(toons)
+function toons() {
+    fetch(theToons)
     .then(res => res.json())
     .then(data => {
-        console.log(data)
-        for(var items of data.data) {
-            console.log(items)
-            var box = `<div>`
-            box += `<h2>${items.name}</h2></div>`
+        console.log(data.data)
+        // for(var items of data.data) {
+        //     console.log(items)
+        //     var box = `<div>`
+        //     box += `<h2>${items.name}</h2></div>`
+        //     console.log('box', box)
+        // }
+        for(var i = 0; i < data.data.length; i++) {
+            var box = `<div><h2>${data.data[i].name}</h2></div>`
             console.log('box', box)
+            document.getElementById('toons').innerHTML = box
         }
+        
     })
 }
-getToons()
+
 
 var dogs = new Request(`https://random.dog/woof.json
 `)
