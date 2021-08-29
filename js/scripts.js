@@ -22,14 +22,25 @@ function toons() {
         //     console.log('box', box)
         // }
         for(var i = 0; i < data.data.length; i++) {
-            var box = `<div><h2>${data.data[i].name}</h2></div>`
-            console.log('box', box)
-            document.getElementById('toons').innerHTML = box
+            var node = document.createElement('div')
+            node.classList.add('theToons')
+            var h2 = document.createElement('h2')
+            var name = document.createTextNode(data.data[i].name)
+            h2.appendChild(name)
+            var img = new Image()
+            img.src = `${data.data[i].img}`
+            img.alt = `${data.data[i].name}`
+            var h3 = document.createElement('h3')
+            var birth = document.createTextNode(data.data[i].birthDay)
+            h3.appendChild(birth)
+            node.appendChild(h2)
+            node.appendChild(img)
+            node.appendChild(h3)
+            document.getElementById('toons').appendChild(node)
         }
         
     })
 }
-
 
 var dogs = new Request(`https://random.dog/woof.json
 `)

@@ -1,3 +1,18 @@
 img {
     max-width: 300px;
 }
+#toons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.theToons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .5em;
+    margin: .5em;
+    border: 3px groove blue;
+}
